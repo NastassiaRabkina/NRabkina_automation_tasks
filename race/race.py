@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import operator
 
 class Car(object):
-	"""docstring for ClassName"""
+	"""This class is for describing object cars and it's properties"""
 	def __init__(self, id):
 		self.name = 'Car' + str(id)
 		self.distance = 0
@@ -28,9 +28,10 @@ if __name__ == "__main__":
 		tic = 1
 		while tic <= 20:
 			print (tic, "_____")
-			# Start the load operations and mark each future with its URL
+			# Start the race and create future object to generate_speed function call for each car
 			futures = [executor.submit(car.generate_speed) for car in cars]
 			_= [f.result() for f in as_completed(futures)]
+			#sort the car list and select top 3
 			cars.sort(key=operator.attrgetter('distance'), reverse=True)
 			for i in range (1, 4):
 				print (str(cars[i]))
