@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 
-class InputValidator(object):
+class InputValidator:
     """this class validates users input before calculation"""
 
     def is_input_valid(self):
@@ -34,7 +34,7 @@ class InputValidator(object):
                 break
         return x
 
-class Calculator(object):
+class Calculator:
     """this class performs calculation"""
 
     def adding(self,a,b):
@@ -53,7 +53,7 @@ class Calculator(object):
         result = a / b
         return result
 
-class FileSaver(object):
+class FileSaver:
     """this class is to write the results to a results.txt file"""
 
     def write_to_file(self,res):
